@@ -34,6 +34,8 @@ https://learn.adacore.com/labs/intro-to-ada/chapters/arrays.html
 
   https://www.youtube.com/watch?v=obCMGkQ8Y8g&ab_channel=MachineLearning%26Simulation
 
+  https://docs.julialang.org/en/v1/manual/running-external-programs/
+
 - ada / c:
   https://flyx.org/ada-bindings/
   
