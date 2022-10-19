@@ -14,7 +14,6 @@ begin
   Put_Line("Factorial:           " & unsigned_long'Image(factorial(a)));
   Put_Line("Factorial:           " & unsigned_long'Image(rec_factorial(a)) & ASCII.LF);
 
-
   Put_Line("========================= [GCD] =========================" & ASCII.LF);
   Put_Line("GCD for           a =" & unsigned_long'Image(b) & ", b =" & unsigned_long'Image(c) & ":" & unsigned_long'Image(gcd(b, c)));
   Put_Line("Recursive GCD for a =" & unsigned_long'Image(b) & ", b =" & unsigned_long'Image(c) & ":" & unsigned_long'Image(rec_gcd(b, c)) & ASCII.LF);

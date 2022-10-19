@@ -2,7 +2,7 @@
 include("lib.jl")
 using .LIB
 
-TEST_ARRAY = [(13, 5, 1), (27, 4, 3), (15, 5, 25), (1, 1, 1), (0, 0, 0), (0, 0, 1), (0, 1, 0)] 
+TEST_ARRAY = [(13, 5, 1), (27, 4, 3), (15, 5, 25), (1, 1, 1), (0, 0, 0), (0, 0, 1), (0, 1, 0), (12, 73, 96)] 
 
 function diophantine_equation_test() 
   println("================ [DIOPHANTINE  EQUASION] ================\n")

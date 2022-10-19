@@ -1,7 +1,6 @@
 // gnatmake ../../ada/lib.adb && gcc -c ada_wrapper.c && gnatbind -n lib.ali && gnatlink lib.ali ada_wrapper.o
 // ./lib
 
-
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -9,6 +8,7 @@
 
 extern void adainit();
 extern void adafinal();
+
 extern uint64_t factorial(uint64_t n);
 extern uint64_t rec_factorial(uint64_t n);
 

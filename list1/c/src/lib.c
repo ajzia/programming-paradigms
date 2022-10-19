@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-extern uint64_t factorial(register const uint64_t n) {
+uint64_t factorial(register const uint64_t n) {
   if (n == 0)
     return 1;
 
@@ -13,14 +13,14 @@ extern uint64_t factorial(register const uint64_t n) {
   return result;
 }
 
-extern uint64_t rec_factorial(register const uint64_t n) {
+uint64_t rec_factorial(register const uint64_t n) {
   if (n == 0) 
     return 1;
 
   return n * rec_factorial(n - 1);
 }
 
-extern uint64_t gcd(register const uint64_t x, register const uint64_t y) {
+uint64_t gcd(register const uint64_t x, register const uint64_t y) {
   if (x == 0 || y == 0)
     return 0;
 
@@ -37,7 +37,7 @@ extern uint64_t gcd(register const uint64_t x, register const uint64_t y) {
   return result;
 }
 
-extern uint64_t rec_gcd(register const uint64_t x, register const uint64_t y) {
+uint64_t rec_gcd(register const uint64_t x, register const uint64_t y) {
   if (y != 0)
     return rec_gcd(y, x % y);
 
@@ -87,7 +87,7 @@ static int64_t rec_gcd_extended(register const int64_t a, register const int64_t
   return gcd;
 }
 
-extern void diophantine_equation(register const int64_t a, register const int64_t b, register const int64_t c, register int64_t* restrict const x, register int64_t* restrict const y) {
+void diophantine_equation(register const int64_t a, register const int64_t b, register const int64_t c, register int64_t* restrict const x, register int64_t* restrict const y) {
   if (a == 0 && b == 0) {
     if (c == 0) {
       *x = 1;
@@ -120,7 +120,7 @@ extern void diophantine_equation(register const int64_t a, register const int64_
   return;
 }
 
-extern void rec_diophantine_equation(register const int64_t a, register const int64_t b, register const int64_t c, register int64_t* restrict const x, register int64_t* restrict const y) {
+void rec_diophantine_equation(register const int64_t a, register const int64_t b, register const int64_t c, register int64_t* restrict const x, register int64_t* restrict const y) {
   if (a == 0 && b == 0) {
     if (c == 0) {
       *x = 1;
