@@ -52,5 +52,5 @@ Mkfile.old
 dkms.conf
 
 *.ali
+*.class
 .vscode
-lista.md
