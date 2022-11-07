@@ -20,32 +20,33 @@ public class GaloisField {
 
   // Arithmetic
   public GaloisField _add(final GaloisField gf) {
-    this.number = (this.number + gf.number) % this.order;
+    this.number = (((this.number + gf.number + this.order) % this.order) + this.order) % this.order;
     return this;
   }
  
+  // (order + ((number - gf.number + order) % order)) % order;
   public GaloisField _add(final long number) {
-    this.number = (this.number + number) % this.order;
+    this.number = (((this.number + number + this.order) % this.order) + this.order) % this.order;
     return this;
   }
 
   public GaloisField _sub(final GaloisField gf) {
-    this.number = (this.number - gf.number) % this.order;
+    this.number = (((this.number - gf.number + this.order) % this.order) + this.order) % this.order;
     return this;
   }
   
   public GaloisField _sub(final long number) {
-    this.number = (this.number - number) % this.order;
+    this.number = (((this.number - number + this.order) % this.order) + this.order) % this.order;
     return this;
   }
 
   public GaloisField _mul(final GaloisField gf) {
-    this.number = (this.number * gf.number) % this.order;
+    this.number = (((this.number * gf.number + this.order) % this.order) + this.order) % this.order;
     return this;
   }
   
   public GaloisField _mul(final long number) {
-    this.number = (this.number * number) % this.order;
+    this.number = (((this.number * number + this.order) % this.order) + this.order) % this.order;
     return this;
   }
 
@@ -74,7 +75,7 @@ public class GaloisField {
   }
 
   public Boolean _neq(final GaloisField gf) {
-    return (this.number == gf.number);
+    return (this.number != gf.number);
   }
 
   public Boolean _gt(final GaloisField gf) {
@@ -95,7 +96,7 @@ public class GaloisField {
 
   // Assignment
   public GaloisField _assign(final long number) {
-    this.number = number;
+    this.number = (((number + this.order) % this.order) + this.order) % this.order;
     return this;
   }
 

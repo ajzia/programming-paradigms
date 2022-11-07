@@ -1,6 +1,7 @@
 /*  
   javac Main.java GaloisField.java
-  java Main
+  java -ea Main
+  -ea (enable assertions)
 */
 class Main {
   public static void main(String[] args) {
@@ -51,22 +52,22 @@ class Main {
   
     System.out.println("     + test:");
     System.out.println("       [" + gf1 + " + " + gf2 + "].get_number() == " + mod(gf1.get_number() + gf2.get_number(), TEST_PRIME) );
-    assert((gf1._add(gf2)).get_number() == mod(gf1.get_number() + gf2.get_number(), TEST_PRIME));
+    assert(mod(gf1.get_number() + gf2.get_number(), TEST_PRIME) == (gf1._add(gf2)).get_number());
 
     System.out.println("\n     - test:");
     System.out.println("       [" + gf1 + " - " + gf2 + "].get_number() == " + mod(gf1.get_number() - gf2.get_number(), TEST_PRIME) );
-    assert((gf1._sub(gf2)).get_number() == mod(gf1.get_number() - gf2.get_number(), TEST_PRIME));
+    assert(mod(gf1.get_number() - gf2.get_number(), TEST_PRIME) == (gf1._sub(gf2)).get_number());
 
     System.out.println("\n     * test:");
     System.out.println("       [" + gf1 + " * " + gf2 + "].get_number() == " + mod(gf1.get_number() * gf2.get_number(), TEST_PRIME) );
-    assert((gf1._mul(gf2)).get_number() == mod(gf1.get_number() * gf2.get_number(), TEST_PRIME));
+    assert(mod(gf1.get_number() * gf2.get_number(), TEST_PRIME) == (gf1._mul(gf2)).get_number());
 
   
     System.out.println("\n     / test:");
     System.out.println("       [" + gf1 + " / " + gf2 + "].get_number() == " + mod(gf1.get_number() * gf2.mod_inverse().get_number(), TEST_PRIME) );
-    assert((gf1._div(gf2)).get_number() == mod(gf1.get_number() * gf2.mod_inverse().get_number(), TEST_PRIME));
-    // ultimate division test
-    assert((gf1._div(gf2))._mul(gf1._mul(gf2)) == (gf1._mul(gf2)));
+    assert(mod(gf1.get_number() * gf2.mod_inverse().get_number(), TEST_PRIME) == (gf1._div(gf2)).get_number());
+    GaloisField temp = gf1;
+    assert((gf1._div(gf2))._mul(gf1._mul(gf2)) == (temp._mul(temp)));
 
     System.out.println("  TESTS PASSED!");
   }
@@ -135,9 +136,9 @@ class Main {
   
     System.out.println("\n     != tests:");
     System.out.println("       [" + gf1 + " != " + gf2 + "] == " + "[" + mod(x, TEST_PRIME) + " != " + mod(y, TEST_PRIME) + "]");
-    assert((gf1._neq(gf3)) == (mod(x, TEST_PRIME) != mod(y, TEST_PRIME)));
-    System.out.println("       [" + gf3 + " != GF<1234567891>(1234567891 + 1)]");
+    assert((gf1._neq(gf2)) == (mod(x, TEST_PRIME) != mod(y, TEST_PRIME)));
     gf3._dec();
+    System.out.println("       [" + gf3 + " != GF<1234567891>(1234567891 + 1)]");
     assert(gf3._neq(gf4)); 
   
     System.out.println("\n     = tests:");
