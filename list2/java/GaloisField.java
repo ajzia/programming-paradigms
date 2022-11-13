@@ -24,7 +24,6 @@ public class GaloisField {
     return this;
   }
  
-  // (order + ((number - gf.number + order) % order)) % order;
   public GaloisField _add(final long number) {
     this.number = (((this.number + number + this.order) % this.order) + this.order) % this.order;
     return this;

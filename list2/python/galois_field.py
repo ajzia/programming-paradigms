@@ -9,7 +9,7 @@ def GaloisField(order: int):
     def __init__(self, num: int, /):
       self.num = num % order
 
-    # Pretty printing
+    # Printing
     def __str__(self):
       return f"GF<{order}>({self.num})"
 
@@ -17,29 +17,31 @@ def GaloisField(order: int):
     def __neg__(self):
       return FieldElement(-self.num)
 
-    @force_typecast
+    @typecast
     def __add__(self, other):
       return FieldElement(self.num + other.num)  
 
-    @force_typecast
+    @typecast
     def __sub__(self, other):
       return FieldElement(self.num - other.num)  
 
-    @force_typecast
+    @typecast
     def __mul__(self, other):
       return FieldElement(self.num * other.num)
 
+    @typecast
     def __pow__(self, other):
       return FieldElement(self.num ** other.num)
 
-    @force_typecast
+    @typecast
     def __truediv__(self, other):
       return self * other.mod_inverse()
 
+    @typecast
     def __div__(self, other):
       return self * other.mod_inverse()
 
-    @force_typecast
+    @typecast
     def __divmod__(self, other):
       (quot, remainder) = divmod(self.num, other.num)
       return (FieldElement(quot), FieldElement(remainder))
@@ -48,21 +50,23 @@ def GaloisField(order: int):
       return FieldElement(pow(self.num, -1, self.order))
       
     # Comparison operators
-    @force_typecast
+    @typecast
     def __eq__(self, other):
       return self.num == other.num
 
-    @force_typecast
+    @typecast
     def __lt__(self, other):
       return self.num < other.num
 
+    @typecast
     def __le__(self, other):
       return self.__lt__(other) or self.__eq__(other)
 
-    @force_typecast
+    @typecast
     def __gt__(self, other):
       return self.num > other.num
 
+    @typecast
     def __ge__(self, other):
       return self.__gt__(other) or self.__eq__(other)
 
@@ -85,7 +89,7 @@ def GaloisField(order: int):
   FieldElement.order = order
   return FieldElement
 
-def force_typecast(f):
+def typecast(f):
   def __cast(self, other):
     if type(self) is not type(other):
       try:

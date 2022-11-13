@@ -49,7 +49,6 @@ void GaloisField<order>::operator-- (int) { // postfix --
   *this = (*this - gf);
 }
 
-// i-arithmetic 
 template<uint64_t order>
 void GaloisField<order>::operator+= (const GaloisField<order> gf) { 
   *this = (*this + gf);

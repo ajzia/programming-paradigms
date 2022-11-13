@@ -101,7 +101,7 @@ class GaloisField {
       return b == 0 ? x : mod_inv(b, a % b, y, x - y * (a / b));
     }
 
-    GaloisField<order> mod_inverse(void) const {
+    GaloisField<order> mod_inverse(void) {
       const int64_t temp = mod_inv(this->number, order);
       const uint64_t num = (((temp + order) % order) + order) % order;
       return GaloisField<order>(num);
