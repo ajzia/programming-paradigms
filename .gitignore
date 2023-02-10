@@ -54,3 +54,5 @@ dkms.conf
 *.ali
 *.class
 .vscode
+
+__pycache__
