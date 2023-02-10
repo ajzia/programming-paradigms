@@ -69,27 +69,27 @@ public class GaloisField {
   }
 
   // Comparison
-  public Boolean _eq(final GaloisField gf) {
+  public boolean _eq(final GaloisField gf) {
     return (this.number == gf.number);
   }
 
-  public Boolean _neq(final GaloisField gf) {
+  public boolean _neq(final GaloisField gf) {
     return (this.number != gf.number);
   }
 
-  public Boolean _gt(final GaloisField gf) {
+  public boolean _gt(final GaloisField gf) {
     return (this.number > gf.number);
   }
 
-  public Boolean _lt(final GaloisField gf) {
+  public boolean _lt(final GaloisField gf) {
     return (this.number < gf.number);
   }
 
-  public Boolean _ge(final GaloisField gf) {
+  public boolean _ge(final GaloisField gf) {
     return (this.number >= gf.number);
   }
 
-  public Boolean _le(final GaloisField gf) {
+  public boolean _le(final GaloisField gf) {
     return (this.number <= gf.number);
   }
 
@@ -124,7 +124,7 @@ public class GaloisField {
     return order;
   }  
 
-  private static Boolean is_prime(final long num) {
+  private static boolean is_prime(final long num) {
     if (num == 2 || num == 3) return true;
     if (num < 2 || num % 2 == 0) return false;
     if (num < 9) return true;
